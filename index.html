@@ -3,25 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEGINNER.ID | Home</title>
+    <title>BEGINNER.ID | Wear & Vision</title>
     <style>
-        /* --- RESET DASAR --- */
+        /* --- RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
             background-color: #ffffff;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* --- NAVIGASI CLASSIC & DROPDOWN --- */
+        /* --- NAVIGATION --- */
         nav {
             background-color: #ffffff;
-            padding: 25px 0;
-            border-bottom: 4px solid #c5a059; /* Garis Emas */
+            padding: 20px 0;
+            border-bottom: 4px solid #c5a059;
             display: flex;
             justify-content: center;
             position: sticky;
@@ -29,197 +26,134 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-        }
-
-        nav ul li {
-            position: relative;
-        }
-
+        nav ul { list-style: none; display: flex; gap: 30px; }
         nav ul li a {
             text-decoration: none;
             color: #444;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: 0.3s;
         }
+        nav ul li a:hover { color: #c5a059; }
 
-        nav ul li a:hover {
-            color: #c5a059;
-        }
-
-        /* Gaya Dropdown */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #ffffff;
-            min-width: 180px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-            z-index: 1;
-            top: 100%;
-            border-top: 3px solid #c5a059;
-            margin-top: 10px;
-        }
-
-        .dropdown-content a {
-            color: #333;
-            padding: 12px 20px;
-            text-transform: none;
-            letter-spacing: 1px;
-            display: block;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 14px;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #fffaf0;
-            color: #c5a059;
-        }
-
-        nav ul li:hover .dropdown-content {
-            display: block;
-        }
-
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
             text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(to bottom, #fff, #f9f9f9);
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #fff, #f4f4f4);
         }
+        .hero h1 { font-size: 3.5rem; letter-spacing: 10px; text-transform: uppercase; margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; opacity: 0.8; }
 
-        .hero h1 {
-            font-size: 3rem;
-            letter-spacing: 8px;
+        /* --- SECTION TITLES --- */
+        .section-title {
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 40px;
             text-transform: uppercase;
-            margin-bottom: 10px;
-            color: #1a1a1a;
+            letter-spacing: 5px;
+            font-size: 1.8rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #c5a059;
+            margin: 15px auto;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* --- THE TRIPLE THREAT (KATEGORI) --- */
-        .triple-threat {
-            padding: 60px 20px 100px;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* --- SERVICES (DUAL THREAT) --- */
+        .dual-threat {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            flex: 1; /* Mendorong footer ke bawah */
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-
         .card {
             background: #fff;
             border: 1px solid #eee;
-            padding: 45px 35px;
+            padding: 40px;
             text-align: center;
-            border-radius: 20px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 15px;
+            transition: 0.4s;
+        }
+        .card:hover { transform: translateY(-10px); border-color: #c5a059; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .card-icon { font-size: 50px; margin-bottom: 20px; }
+
+        /* --- PORTFOLIO GALLERY --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .portfolio-item {
+            height: 250px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        .portfolio-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: 0.5s;
+        }
+        .portfolio-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(197, 160, 89, 0.9);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.4s; color: white; font-weight: bold;
+        }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-item:hover img { transform: scale(1.1); }
+
+        /* --- PRICING TABLE --- */
+        .pricing-section {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            max-width: 1000px;
+            margin: 40px auto 100px;
+            padding: 0 20px;
         }
-
-        .card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #c5a059;
+        .price-card {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            border-top: 5px solid #c5a059;
         }
-
-        .card-icon {
-            font-size: 55px;
-            margin-bottom: 25px;
-        }
-
-        .card h3 {
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-            font-size: 1.2rem;
-        }
-
-        .card p {
-            font-size: 15px;
-            color: #777;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
+        .price-card h4 { color: #c5a059; margin-bottom: 10px; text-transform: uppercase; }
+        .price-card .amount { font-size: 2rem; font-weight: bold; margin: 20px 0; display: block; }
+        .price-card ul { list-style: none; margin-bottom: 30px; font-size: 0.9rem; opacity: 0.8; }
+        .price-card ul li { margin-bottom: 10px; }
 
         .cta-mini {
-            text-decoration: none;
-            color: #c5a059;
-            font-weight: bold;
-            font-size: 12px;
-            text-transform: uppercase;
-            border: 2px solid #c5a059;
-            padding: 12px 25px;
-            border-radius: 50px;
-            transition: 0.3s;
-            align-self: center;
+            text-decoration: none; color: #c5a059; font-weight: bold; font-size: 11px;
+            text-transform: uppercase; border: 2px solid #c5a059; padding: 12px 25px;
+            border-radius: 50px; transition: 0.3s; display: inline-block;
         }
-
-        .cta-mini:hover {
-            background-color: #c5a059;
-            color: #fff;
-        }
+        .cta-mini:hover { background: #c5a059; color: #fff; }
 
         /* --- FOOTER --- */
-        footer {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            padding: 60px 20px;
-            text-align: center;
-        }
+        footer { background: #111; color: #777; padding: 60px 20px; text-align: center; }
+        .footer-links a { color: #fff; text-decoration: none; margin: 0 10px; font-size: 13px; }
 
-        .footer-content h3 {
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            color: #c5a059;
-        }
-
-        .footer-links {
-            margin: 25px 0;
-        }
-
-        .footer-links a {
-            color: #ffffff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 14px;
-            opacity: 0.7;
-            transition: 0.3s;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: #c5a059;
-        }
-
-        .footer-bottom {
-            font-size: 12px;
-            color: #555;
-            margin-top: 30px;
-            border-top: 1px solid #333;
-            padding-top: 20px;
-        }
-
-        /* Responsive HP */
         @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
             nav ul { gap: 15px; }
-            nav ul li a { font-size: 11px; letter-spacing: 1px; }
-            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -227,68 +161,86 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">What's New</a></li>
-            <li><a href="#">Directors</a></li>
-            <li class="dropdown">
-                <a href="#">App ▼</a>
-                <div class="dropdown-content">
-                    <a href="#">Inventory System</a>
-                    <a href="#">Member Portal</a>
-                    <a href="#">Order Tracking</a>
-                </div>
-            </li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
-    <div class="hero">
+    <section class="hero" id="home">
         <h1>BEGINNER.ID</h1>
-        <p>Elevating Taste, Wear, and Vision to the next level.</p>
-    </div>
+        <p>Expertly crafting your brand's physical identity and digital vision.</p>
+    </section>
 
-    <section class="triple-threat">
+    <h2 class="section-title" id="services">Our Services</h2>
+    <section class="dual-threat">
         <div class="card">
-            <div>
-                <div class="card-icon">🍽️</div>
-                <h3>The Taste</h3>
-                <p>"Manjakan lidah dengan hidangan berkualitas. Dari camilan hingga katering, kami sajikan rasa yang autentik dengan bahan pilihan."</p>
-            </div>
-            <a href="#" class="cta-mini">Lihat Menu</a>
+            <div class="card-icon">👕</div>
+            <h3>The Wear</h3>
+            <p>Konveksi premium untuk seragam komunitas, jersey, dan kemeja kerja dengan kualitas jahitan distro.</p>
+            <a href="#" class="cta-mini">Pesan Sekarang</a>
         </div>
-
         <div class="card">
-            <div>
-                <div class="card-icon">👕</div>
-                <h3>The Wear</h3>
-                <p>"Ubah ide menjadi identitas. Konveksi terpercaya untuk seragam, jersey, hingga merchandise dengan jahitan rapi dan bahan premium."</p>
-            </div>
-            <a href="#" class="cta-mini">Mulai Pesanan</a>
+            <div class="card-icon">🎨</div>
+            <h3>The Vision</h3>
+            <p>Solusi desain grafis untuk logo branding, layouting, hingga pengelolaan konten media sosial.</p>
+            <a href="#" class="cta-mini">Konsultasi Gratis</a>
         </div>
+    </section>
 
-        <div class="card">
-            <div>
-                <div class="card-icon">🎨</div>
-                <h3>The Vision</h3>
-                <p>"Visualkan mimpimu. Layanan desain grafis profesional untuk logo, branding, hingga konten media sosial yang ikonik."</p>
-            </div>
-            <a href="#" class="cta-mini">Konsultasi Desain</a>
+    <h2 class="section-title" id="portfolio">Recent Works</h2>
+    <section class="portfolio-grid">
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/400x400" alt="Work 1">
+            <div class="portfolio-overlay">Identity Design</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/400x400" alt="Work 2">
+            <div class="portfolio-overlay">Premium Apparel</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/400x400" alt="Work 3">
+            <div class="portfolio-overlay">Social Media Kit</div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/400x400" alt="Work 4">
+            <div class="portfolio-overlay">Custom Jersey</div>
+        </div>
+    </section>
+
+    <h2 class="section-title" id="pricing">Pricing Starter</h2>
+    <section class="pricing-section">
+        <div class="price-card">
+            <h4>Apparel Base</h4>
+            <span class="amount">Start From IDR 85k</span>
+            <ul>
+                <li>Min. Order 12 Pcs</li>
+                <li>Bahan Cotton Combed 24s/30s</li>
+                <li>Sablon Plastisol Premium</li>
+                <li>Free Stiker & Packaging</li>
+            </ul>
+            <a href="#" class="cta-mini">Order Wear</a>
+        </div>
+        <div class="price-card">
+            <h4>Design Base</h4>
+            <span class="amount">Start From IDR 150k</span>
+            <ul>
+                <li>High-Res File (AI, PNG, JPG)</li>
+                <li>Maks. 2x Revisi</li>
+                <li>Pengerjaan 2-3 Hari</li>
+                <li>Lisensi Komersial</li>
+            </ul>
+            <a href="#" class="cta-mini">Order Vision</a>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <h3>BEGINNER.ID DIGITAL</h3>
-            <p>Membangun masa depan digital yang lebih keren.</p>
-            <div class="footer-links">
-                <a href="#">INSTAGRAM</a>
-                <a href="#">WHATSAPP</a>
-                <a href="#">LINKEDIN</a>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2026 FAMECA With LOVE.
-            </div>
+        <div class="footer-links">
+            <a href="#">INSTAGRAM</a> | <a href="#">WHATSAPP</a> | <a href="#">BEHANCE</a>
         </div>
+        <p style="margin-top: 20px;">&copy; 2026 BEGINNER.ID - FAMECA</p>
     </footer>
 
 </body>
