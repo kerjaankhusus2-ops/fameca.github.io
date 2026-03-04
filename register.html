@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGNR.ID | Daftar Akun</title>
+    <style>
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- REGISTER CARD --- */
+        .register-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            border-top: 5px solid #c5a059;
+        }
+
+        .register-card img {
+            height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .register-card h2 {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        /* --- FORM STYLING --- */
+        .register-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Membagi kolom untuk Nama Depan & Belakang */
+            gap: 15px;
+            text-align: left;
+        }
+
+        .full-width { grid-column: span 2; }
+
+        .input-group label {
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .register-form input, .register-form select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .register-form input:focus {
+            border-color: #c5a059;
+        }
+
+        /* --- BUTTON --- */
+        .btn-register {
+            grid-column: span 2;
+            background-color: #e62129;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-register:hover {
+            background-color: #c51a20;
+            transform: translateY(-2px);
+        }
+
+        /* --- LINKS --- */
+        .extra-links {
+            grid-column: span 2;
+            margin-top: 20px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .extra-links a {
+            text-decoration: none;
+            color: #c5a059;
+            font-weight: 600;
+        }
+
+        .back-home {
+            margin-top: 15px;
+            display: inline-block;
+            font-size: 11px;
+            color: #bbb;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-card">
+        <img src="logo-bgnr.png" alt="BGNR.ID Logo">
+        <h2>Create Account</h2>
+        
+        <form class="register-form">
+            <div class="input-group">
+                <label>Nama Depan</label>
+                <input type="text" placeholder="John" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Nama Belakang</label>
+                <input type="text" placeholder="Doe" required>
+            </div>
+            
+            <div class="input-group full-width">
+                <label>Alamat Email</label>
+                <input type="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="input-group full-width">
+                <label>No. WhatsApp (Aktif)</label>
+                <input type="tel" placeholder="0812xxxx" required>
+            </div>
+            
+            <div class="input-group full-width">
+                <label>Password Baru</label>
+                <input type="password" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="btn-register">Daftar Sekarang</button>
+
+            <div class="extra-links">
+                <p>Sudah punya akun? <a href="login.html">Login di sini</a></p>
+            </div>
+        </form>
+
+        <a href="index.html" class="back-home">← Kembali ke Beranda</a>
+    </div>
+
+</body>
+</html>
