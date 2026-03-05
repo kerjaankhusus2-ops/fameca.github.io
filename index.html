@@ -3,22 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BGNR.ID | Wear & Vision</title>
+    <title>BGNR.ID | Premium Jersey Catalog</title>
     <style>
         /* --- RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #ffffff;
             color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* --- NAVIGASI (INTEGRASI LOGIN) --- */
+        /* --- NAVIGASI --- */
         nav {
             background-color: #ffffff;
             padding: 10px 5%;
@@ -32,23 +30,11 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo-container img { 
-            height: 50px; 
-            width: auto; 
-            display: block;
-        }
+        .logo-container img { height: 50px; width: auto; display: block; }
 
-        .nav-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
+        .nav-wrapper { display: flex; align-items: center; gap: 30px; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+        nav ul { list-style: none; display: flex; gap: 20px; }
 
         nav ul li a {
             text-decoration: none;
@@ -62,7 +48,6 @@
 
         nav ul li a:hover { color: #c5a059; }
 
-        /* Tombol Login di Navigasi */
         .btn-nav-login {
             text-decoration: none;
             color: #c5a059;
@@ -72,36 +57,22 @@
             font-size: 11px;
             font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 1px;
             transition: 0.3s;
         }
 
-        .btn-nav-login:hover {
-            background-color: #c5a059;
-            color: #fff;
-        }
+        .btn-nav-login:hover { background-color: #c5a059; color: #fff; }
 
         /* --- HERO SECTION --- */
         .hero {
             text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to bottom, #fff, #f9f9f9);
+            padding: 120px 20px;
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+        .hero h1 { font-size: 3.5rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 15px; color: #1a1a1a; }
+        .hero p { font-size: 1.2rem; color: #666; max-width: 700px; margin: 0 auto 30px; }
 
         /* --- SECTION TITLES --- */
         .section-title {
@@ -116,131 +87,73 @@
             content: ''; display: block; width: 50px; height: 3px; background: #c5a059; margin: 15px auto;
         }
 
-        /* --- ABOUT --- */
-        .about-box {
-            max-width: 800px;
-            margin: 0 auto 60px;
-            text-align: center;
-            padding: 0 20px;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        /* --- SERVICES (DUAL THREAT) --- */
-        .dual-threat {
-            padding: 20px 20px 80px;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            background: #fff;
-            border: 1px solid #eee;
-            padding: 50px 40px;
-            text-align: center;
-            border-radius: 20px;
-            transition: 0.4s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #c5a059;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-
-        .card-icon { font-size: 50px; margin-bottom: 20px; }
-
-        /* --- GALLERY --- */
+        /* --- CATALOG GRID --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            gap: 20px;
             padding: 0 5%;
             max-width: 1200px;
-            margin: 0 auto 80px;
+            margin: 0 auto 60px;
         }
 
         .gallery-item {
-            height: 350px;
-            background: #eee;
-            border-radius: 10px;
+            position: relative;
+            height: 400px;
+            background: #f4f4f4;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s;
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+
+        .product-info {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: #fff;
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: 0.4s;
         }
 
-        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item:hover .product-info { transform: translateY(0); }
+        .gallery-item:hover img { transform: scale(1.1); }
 
-        /* --- CONTACT FORM --- */
-        .contact-wrapper {
-            max-width: 600px;
-            margin: 0 auto 100px;
-            padding: 0 20px;
-        }
+        .product-info h4 { color: #c5a059; font-size: 18px; margin-bottom: 5px; }
+        .product-info p { font-size: 13px; opacity: 0.9; }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: inherit;
-        }
+        /* --- PRICING TABLE --- */
+        .pricing-container { max-width: 1000px; margin: 0 auto 80px; padding: 0 20px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; }
+        th { background: #c5a059; color: white; padding: 18px; text-align: left; text-transform: uppercase; font-size: 13px; }
+        td { padding: 18px; border-bottom: 1px solid #eee; font-size: 14px; }
+        tr:hover { background-color: #f9f9f9; }
 
         /* --- BUTTONS --- */
         .cta-red {
-            text-decoration: none;
-            color: #fff;
-            background-color: #e62129;
-            padding: 14px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 12px;
-            text-transform: uppercase;
-            display: inline-block;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
+            text-decoration: none; color: #fff; background-color: #e62129;
+            padding: 14px 35px; border-radius: 50px; font-weight: bold;
+            font-size: 12px; text-transform: uppercase; display: inline-block;
+            transition: 0.3s; border: none; cursor: pointer;
         }
+        .cta-red:hover { background-color: #c51a20; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(230,33,41,0.3); }
 
-        .cta-red:hover { background-color: #c51a20; transform: scale(1.05); }
+        /* --- FOOTER --- */
+        footer { background-color: #1a1a1a; color: #ffffff; padding: 60px 20px; text-align: center; }
+        .footer-bottom { font-size: 11px; color: #555; margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; }
 
-        /* --- WA FLOAT --- */
         .wa-float {
             position: fixed; bottom: 30px; right: 30px; background-color: #25d366;
             width: 60px; height: 60px; border-radius: 50%; display: flex;
-            justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000;
+            justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000;
         }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .footer-bottom { font-size: 11px; color: #555; margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; }
 
         @media (max-width: 850px) {
-            nav { flex-direction: column; padding: 20px; gap: 15px; }
-            .nav-wrapper { flex-direction: column; gap: 15px; }
-            .hero h1 { font-size: 2.2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            nav { flex-direction: column; gap: 15px; }
+            nav ul { gap: 10px; }
         }
     </style>
 </head>
@@ -248,86 +161,112 @@
 
     <nav>
         <div class="logo-container">
-            <a href="#home">
-                <img src="logo-bgnr.png" alt="BGNR.ID">
-            </a>
+            <a href="#home"><img src="logo-bgnr.png" alt="BGNR.ID"></a>
         </div>
         <div class="nav-wrapper">
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#gallery">Catalog</a></li>
+                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="login.html" class="btn-nav-login">Login Account</a>
+            <a href="login.html" class="btn-nav-login">Login</a>
         </div>
     </nav>
 
     <section class="hero" id="home">
         <h1>BGNR.ID</h1>
-        <p>Premium Apparel & Iconic Visual Identity Solution.</p>
+        <p>Solusi Konveksi Jersey Premium & Desain Visual Ikonik.</p>
+        <a href="#gallery" class="cta-red">Lihat Katalog</a>
     </section>
 
-    <h2 class="section-title" id="about">About Us</h2>
-    <div class="about-box">
-        <p>BGNR.ID adalah studio kreatif yang menggabungkan keahlian produksi konveksi berkualitas tinggi dengan visi desain visual yang modern. Kami membantu brand dan komunitas menciptakan identitas fisik dan digital yang tak terlupakan.</p>
-    </div>
-
-    <h2 class="section-title" id="services">Our Services</h2>
-    <section class="dual-threat">
-        <div class="card">
-            <div>
-                <div class="card-icon">👕</div>
-                <h3>The Wear</h3>
-                <p>Produksi seragam, jersey, kaos, dan kemeja premium dengan standar jahitan industri dan bahan pilihan.</p>
-            </div>
-            <br>
-            <a href="https://wa.me/6283153441074" class="cta-red" target="_blank">Pesan Konveksi</a>
-        </div>
-
-        <div class="card">
-            <div>
-                <div class="card-icon">🎨</div>
-                <h3>The Vision</h3>
-                <p>Transformasi ide menjadi visual melalui jasa logo branding, desain grafis, dan aset digital kreatif.</p>
-            </div>
-            <br>
-            <a href="https://wa.me/6283153441074" class="cta-red" target="_blank">Konsultasi Desain</a>
-        </div>
-    </section>
-
-    <h2 class="section-title" id="gallery">Design Gallery</h2>
+    <h2 class="section-title" id="gallery">Jersey Catalog</h2>
+    
     <section class="gallery-grid">
-        <div class="gallery-item"><img src="https://via.placeholder.com/400x500?text=Design+Work+1" alt="G1"></div>
-        <div class="gallery-item"><img src="https://via.placeholder.com/400x500?text=Apparel+Work+1" alt="G2"></div>
-        <div class="gallery-item"><img src="https://via.placeholder.com/400x500?text=Identity+Work+1" alt="G3"></div>
-        <div class="gallery-item"><img src="https://via.placeholder.com/400x500?text=Jersey+Work+1" alt="G4"></div>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/400x500?text=Futsal+Jersey" alt="Futsal">
+            <div class="product-info">
+                <h4>Football & Futsal</h4>
+                <p>Dry-fit Milano | Full Sublimation</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/400x500?text=Esport+Jersey" alt="Esport">
+            <div class="product-info">
+                <h4>Esport Series</h4>
+                <p>Dry-fit Benzema | Collar V-Neck/Polo</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/400x500?text=Running+Jersey" alt="Running">
+            <div class="product-info">
+                <h4>Running Wear</h4>
+                <p>High Breathable Mesh | Lightweight</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://via.placeholder.com/400x500?text=Cycling+Jersey" alt="Cycling">
+            <div class="product-info">
+                <h4>Cycling Gear</h4>
+                <p>Aero Fabric | Back Pockets & Zipper</p>
+            </div>
+        </div>
     </section>
 
-    <h2 class="section-title" id="contact">Contact Us</h2>
-    <div class="contact-wrapper">
-        <form class="contact-form">
-            <input type="text" placeholder="Nama Lengkap" required>
-            <input type="email" placeholder="Alamat Email" required>
-            <textarea rows="5" placeholder="Jelaskan kebutuhan project Anda..." required></textarea>
-            <button type="submit" class="cta-red">Kirim Pesan</button>
-        </form>
+    <h2 class="section-title" id="pricing">Daftar Harga</h2>
+    
+    <div class="pricing-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Kategori Produk</th>
+                    <th>Spesifikasi</th>
+                    <th>Minimal Order</th>
+                    <th>Harga (IDR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Jersey Futsal/Bola</b></td>
+                    <td>Setelan Full Printing</td>
+                    <td>12 Pcs</td>
+                    <td>125k - 150k</td>
+                </tr>
+                <tr>
+                    <td><b>Jersey Esport</b></td>
+                    <td>Kerah Polo / Zipper</td>
+                    <td>12 Pcs</td>
+                    <td>135k - 160k</td>
+                </tr>
+                <tr>
+                    <td><b>Singlet Lari</b></td>
+                    <td>Bahan Mesh / Pinhole</td>
+                    <td>24 Pcs</td>
+                    <td>95k - 120k</td>
+                </tr>
+                <tr>
+                    <td><b>Jaket Printing</b></td>
+                    <td>Micro / Parasut</td>
+                    <td>12 Pcs</td>
+                    <td>185k - 250k</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
+    <footer id="contact">
+        <h3 style="color: #c5a059; letter-spacing: 4px; margin-bottom: 10px;">MULAI PROJECT ANDA</h3>
+        <p style="margin-bottom: 30px; opacity: 0.8;">Konsultasikan desain jersey tim Anda secara gratis.</p>
+        <a href="https://wa.me/6283153441074" class="cta-red" target="_blank">Hubungi via WhatsApp</a>
+        
+        <div class="footer-bottom">
+            &copy; 2026 BGNR.ID - Premium Quality Wear. All Rights Reserved.
+        </div>
+    </footer>
 
     <a href="https://wa.me/6283153441074" class="wa-float" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30" alt="WA">
     </a>
-
-    <footer>
-        <div class="footer-content">
-            <h3 style="color: #c5a059; letter-spacing: 4px; margin-bottom: 15px;">BGNR.ID DIGITAL</h3>
-            <p style="font-size: 14px; opacity: 0.8;">Premium Quality Wear & Strategic Visual Design.</p>
-            <div class="footer-bottom">
-                &copy; 2026 FAMECA - BGNR.ID. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
 
 </body>
 </html>
