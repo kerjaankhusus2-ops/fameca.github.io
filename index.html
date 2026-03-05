@@ -48,25 +48,11 @@
 
         nav ul li a:hover { color: #c5a059; }
 
-        .btn-nav-login {
-            text-decoration: none;
-            color: #c5a059;
-            border: 1px solid #c5a059;
-            padding: 8px 20px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: 0.3s;
-        }
-
-        .btn-nav-login:hover { background-color: #c5a059; color: #fff; }
-
         /* --- HERO SECTION --- */
         .hero {
             text-align: center;
             padding: 120px 20px;
-            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80');
+            background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80');
             background-size: cover;
             background-position: center;
         }
@@ -86,6 +72,19 @@
         .section-title::after {
             content: ''; display: block; width: 50px; height: 3px; background: #c5a059; margin: 15px auto;
         }
+
+        /* --- ABOUT SECTION --- */
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-text h3 { color: #c5a059; margin-bottom: 15px; font-size: 1.5rem; }
+        .about-image img { width: 100%; border-radius: 12px; box-shadow: 10px 10px 0px #c5a059; }
 
         /* --- CATALOG GRID --- */
         .gallery-grid {
@@ -131,6 +130,10 @@
         td { padding: 18px; border-bottom: 1px solid #eee; font-size: 14px; }
         tr:hover { background-color: #f9f9f9; }
 
+        /* --- MAPS SECTION --- */
+        .map-section { width: 100%; height: 400px; background: #eee; border-top: 4px solid #c5a059; margin-top: 50px; }
+        .map-section iframe { width: 100%; height: 100%; border: none; }
+
         /* --- BUTTONS --- */
         .cta-red {
             text-decoration: none; color: #fff; background-color: #e62129;
@@ -142,6 +145,10 @@
 
         /* --- FOOTER --- */
         footer { background-color: #1a1a1a; color: #ffffff; padding: 60px 20px; text-align: center; }
+        .social-links { margin-bottom: 25px; display: flex; justify-content: center; gap: 20px; }
+        .social-links a { color: #fff; text-decoration: none; font-size: 12px; border: 1px solid #444; padding: 8px 15px; border-radius: 4px; transition: 0.3s; }
+        .social-links a:hover { background: #c5a059; border-color: #c5a059; }
+        
         .footer-bottom { font-size: 11px; color: #555; margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; }
 
         .wa-float {
@@ -152,25 +159,26 @@
 
         @media (max-width: 850px) {
             .hero h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; gap: 15px; }
-            nav ul { gap: 10px; }
+            .about-container { grid-template-columns: 1fr; text-align: center; }
+            .about-image { order: -1; }
         }
     </style>
 </head>
 <body>
 
     <nav>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.949490487225!2d107.68925317737526!3d-6.896645049680803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd7b398db37d%3A0x8173673a228f60f1!2sBEGINNER.ID!5e0!3m2!1sid!2sid!4v1772701390362!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="logo-container">
             <a href="#home"><img src="logo-bgnr.png" alt="BGNR.ID"></a>
         </div>
         <div class="nav-wrapper">
             <ul>
                 <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#gallery">Catalog</a></li>
                 <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Location</a></li>
             </ul>
-            <a href="login.html" class="btn-nav-login">Login</a>
         </div>
     </nav>
 
@@ -180,8 +188,20 @@
         <a href="#gallery" class="cta-red">Lihat Katalog</a>
     </section>
 
+    <h2 class="section-title" id="about">Tentang Kami</h2>
+    <section class="about-container">
+        <div class="about-text">
+            <h3>Kualitas Tanpa Kompromi</h3>
+            <p>BGNR.ID adalah spesialis pembuatan jersey olahraga dengan standar profesional. Kami menggabungkan teknologi sublimasi terbaru dengan material kain performa tinggi untuk memastikan kenyamanan maksimal di setiap gerakan.</p>
+            <br>
+            <p>Dari komunitas lokal hingga tim profesional, kami hadir untuk mewujudkan identitas tim Anda melalui desain yang ikonik dan kualitas produksi yang tahan lama.</p>
+        </div>
+        <div class="about-image">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/17969032917698225065_0" alt="Produksi Jersey">
+        </div>
+    </section>
+
     <h2 class="section-title" id="gallery">Jersey Catalog</h2>
-    
     <section class="gallery-grid">
         <div class="gallery-item">
             <img src="https://via.placeholder.com/400x500?text=Futsal+Jersey" alt="Futsal">
@@ -214,7 +234,6 @@
     </section>
 
     <h2 class="section-title" id="pricing">Daftar Harga</h2>
-    
     <div class="pricing-container">
         <table>
             <thead>
@@ -254,10 +273,25 @@
         </table>
     </div>
 
-    <footer id="contact">
-        <h3 style="color: #c5a059; letter-spacing: 4px; margin-bottom: 10px;">MULAI PROJECT ANDA</h3>
-        <p style="margin-bottom: 30px; opacity: 0.8;">Konsultasikan desain jersey tim Anda secara gratis.</p>
-        <a href="https://wa.me/6283153441074" class="cta-red" target="_blank">Hubungi via WhatsApp</a>
+    <h2 class="section-title" id="contact">Lokasi Workshop</h2>
+    <div class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.03794301662!2d106.8271528!3d-6.2087634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e04d4f4d23%3A0x669b05322989608!2sJakarta%20Pusat%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <footer id="footer">
+        <h3 style="color: #c5a059; letter-spacing: 4px; margin-bottom: 20px;">HUBUNGI KAMI</h3>
+        
+        <div class="social-links">
+            <a href="https://instagram.com/bgnr.id" target="_blank">INSTAGRAM</a>
+            <a href="https://wa.me/6283153441074" target="_blank">WHATSAPP</a>
+        </div>
+
+        <p style="margin-bottom: 30px; opacity: 0.8; max-width: 500px; margin-left: auto; margin-right: auto;">
+            Jl. Contoh Alamat No. 123, Kota Anda, Indonesia.<br>
+            Buka: Senin - Sabtu (09.00 - 17.00 WIB)
+        </p>
+        
+        <a href="https://wa.me/6283153441074" class="cta-red" target="_blank">Konsultasi Desain Gratis</a>
         
         <div class="footer-bottom">
             &copy; 2026 BGNR.ID - Premium Quality Wear. All Rights Reserved.
