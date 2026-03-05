@@ -14,12 +14,13 @@
             background-color: #ffffff;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden; /* Mencegah geser kanan-kiri yang tak disengaja */
         }
 
         /* --- NAVIGASI --- */
         nav {
             background-color: #ffffff;
-            padding: 10px 5%;
+            padding: 15px 5%;
             border-bottom: 4px solid #c5a059;
             display: flex;
             justify-content: space-between;
@@ -30,41 +31,51 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo-container img { height: 50px; width: auto; display: block; }
-
-        .nav-wrapper { display: flex; align-items: center; gap: 30px; }
+        .logo-container a {
+            text-decoration: none;
+            color: #c5a059;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
 
         nav ul { list-style: none; display: flex; gap: 20px; }
-
         nav ul li a {
             text-decoration: none;
             color: #444;
             font-weight: 700;
             font-size: 11px;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             transition: 0.3s;
         }
-
         nav ul li a:hover { color: #c5a059; }
+
+        /* --- SECTION SETTINGS --- */
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            clear: both; /* Memastikan tidak ada elemen yang mengambang */
+        }
 
         /* --- HERO SECTION --- */
         .hero {
+            max-width: 100%;
             text-align: center;
-            padding: 120px 20px;
-            background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80');
+            padding: 150px 20px;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), 
+                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80');
             background-size: cover;
             background-position: center;
+            margin-bottom: 40px;
         }
-
-        .hero h1 { font-size: 3.5rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 15px; color: #1a1a1a; }
-        .hero p { font-size: 1.2rem; color: #666; max-width: 700px; margin: 0 auto 30px; }
+        .hero h1 { font-size: 3.5rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 15px; }
 
         /* --- SECTION TITLES --- */
         .section-title {
             text-align: center;
-            margin-top: 80px;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-transform: uppercase;
             letter-spacing: 5px;
             font-size: 1.8rem;
@@ -74,232 +85,190 @@
         }
 
         /* --- ABOUT SECTION --- */
-        .about-container {
-            max-width: 1000px;
-            margin: 0 auto 60px;
-            padding: 0 5%;
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 50px;
             align-items: center;
         }
-        .about-text h3 { color: #c5a059; margin-bottom: 15px; font-size: 1.5rem; }
-        .about-image img { width: 100%; border-radius: 12px; box-shadow: 10px 10px 0px #c5a059; }
+        .about-text h3 { color: #c5a059; font-size: 1.8rem; margin-bottom: 20px; }
+        .about-image img { 
+            width: 100%; 
+            border-radius: 8px; 
+            box-shadow: 15px 15px 0px #c5a059;
+        }
 
         /* --- CATALOG GRID --- */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 0 5%;
-            max-width: 1200px;
-            margin: 0 auto 60px;
+            gap: 25px;
         }
-
         .gallery-item {
             position: relative;
-            height: 400px;
-            background: #f4f4f4;
+            height: 450px;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-
-        .product-info {
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .product-label {
             position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: #fff;
-            padding: 30px 20px 20px;
-            transform: translateY(100%);
-            transition: 0.4s;
+            top: 20px; left: 20px;
+            background: white;
+            padding: 5px 15px;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
         }
 
-        .gallery-item:hover .product-info { transform: translateY(0); }
-        .gallery-item:hover img { transform: scale(1.1); }
+        /* --- PRICING --- */
+        .pricing-table-wrapper { overflow-x: auto; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th { background: #c5a059; color: white; padding: 15px; text-align: left; }
+        td { padding: 15px; border-bottom: 1px solid #eee; }
 
-        .product-info h4 { color: #c5a059; font-size: 18px; margin-bottom: 5px; }
-        .product-info p { font-size: 13px; opacity: 0.9; }
-
-        /* --- PRICING TABLE --- */
-        .pricing-container { max-width: 1000px; margin: 0 auto 80px; padding: 0 20px; overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; }
-        th { background: #c5a059; color: white; padding: 18px; text-align: left; text-transform: uppercase; font-size: 13px; }
-        td { padding: 18px; border-bottom: 1px solid #eee; font-size: 14px; }
-        tr:hover { background-color: #f9f9f9; }
-
-        /* --- MAPS SECTION --- */
-        .map-section { width: 100%; height: 400px; background: #eee; border-top: 4px solid #c5a059; margin-top: 50px; }
-        .map-section iframe { width: 100%; height: 100%; border: none; }
-
-        /* --- BUTTONS --- */
-        .cta-red {
-            text-decoration: none; color: #fff; background-color: #e62129;
-            padding: 14px 35px; border-radius: 50px; font-weight: bold;
-            font-size: 12px; text-transform: uppercase; display: inline-block;
-            transition: 0.3s; border: none; cursor: pointer;
+        /* --- LOCATION / MAPS --- */
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #eee;
         }
-        .cta-red:hover { background-color: #c51a20; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(230,33,41,0.3); }
 
         /* --- FOOTER --- */
-        footer { background-color: #1a1a1a; color: #ffffff; padding: 60px 20px; text-align: center; }
-        .social-links { margin-bottom: 25px; display: flex; justify-content: center; gap: 20px; }
-        .social-links a { color: #fff; text-decoration: none; font-size: 12px; border: 1px solid #444; padding: 8px 15px; border-radius: 4px; transition: 0.3s; }
-        .social-links a:hover { background: #c5a059; border-color: #c5a059; }
-        
-        .footer-bottom { font-size: 11px; color: #555; margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; }
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 5% 20px;
+            text-align: center;
+        }
+        .social-link {
+            display: inline-block;
+            margin: 20px 10px;
+            color: white;
+            text-decoration: none;
+            border: 1px solid #c5a059;
+            padding: 10px 25px;
+            transition: 0.3s;
+        }
+        .social-link:hover { background: #c5a059; }
 
+        /* --- FLOATING WA --- */
         .wa-float {
-            position: fixed; bottom: 30px; right: 30px; background-color: #25d366;
-            width: 60px; height: 60px; border-radius: 50%; display: flex;
-            justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000;
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        @media (max-width: 850px) {
-            .hero h1 { font-size: 2.5rem; }
-            .about-container { grid-template-columns: 1fr; text-align: center; }
-            .about-image { order: -1; }
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+            nav { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.949490487225!2d107.68925317737526!3d-6.896645049680803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68dd7b398db37d%3A0x8173673a228f60f1!2sBEGINNER.ID!5e0!3m2!1sid!2sid!4v1772701390362!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="logo-container">
-            <a href="#home"><img src="logo-bgnr.png" alt="BGNR.ID"></a>
+            <a href="#">BGNR.ID</a>
         </div>
-        <div class="nav-wrapper">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#gallery">Catalog</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Location</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#catalog">Catalog</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
     </nav>
 
-    <section class="hero" id="home">
-        <h1>BGNR.ID</h1>
-        <p>Solusi Konveksi Jersey Premium & Desain Visual Ikonik.</p>
-        <a href="#gallery" class="cta-red">Lihat Katalog</a>
-    </section>
-
-    <h2 class="section-title" id="about">Tentang Kami</h2>
-    <section class="about-container">
-        <div class="about-text">
-            <h3>Kualitas Tanpa Kompromi</h3>
-            <p>BGNR.ID adalah spesialis pembuatan jersey olahraga dengan standar profesional. Kami menggabungkan teknologi sublimasi terbaru dengan material kain performa tinggi untuk memastikan kenyamanan maksimal di setiap gerakan.</p>
-            <br>
-            <p>Dari komunitas lokal hingga tim profesional, kami hadir untuk mewujudkan identitas tim Anda melalui desain yang ikonik dan kualitas produksi yang tahan lama.</p>
-        </div>
-        <div class="about-image">
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/17969032917698225065_0" alt="Produksi Jersey">
-        </div>
-    </section>
-
-    <h2 class="section-title" id="gallery">Jersey Catalog</h2>
-    <section class="gallery-grid">
-        <div class="gallery-item">
-            <img src="https://via.placeholder.com/400x500?text=Futsal+Jersey" alt="Futsal">
-            <div class="product-info">
-                <h4>Football & Futsal</h4>
-                <p>Dry-fit Milano | Full Sublimation</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://via.placeholder.com/400x500?text=Esport+Jersey" alt="Esport">
-            <div class="product-info">
-                <h4>Esport Series</h4>
-                <p>Dry-fit Benzema | Collar V-Neck/Polo</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://via.placeholder.com/400x500?text=Running+Jersey" alt="Running">
-            <div class="product-info">
-                <h4>Running Wear</h4>
-                <p>High Breathable Mesh | Lightweight</p>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://via.placeholder.com/400x500?text=Cycling+Jersey" alt="Cycling">
-            <div class="product-info">
-                <h4>Cycling Gear</h4>
-                <p>Aero Fabric | Back Pockets & Zipper</p>
-            </div>
-        </div>
-    </section>
-
-    <h2 class="section-title" id="pricing">Daftar Harga</h2>
-    <div class="pricing-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Kategori Produk</th>
-                    <th>Spesifikasi</th>
-                    <th>Minimal Order</th>
-                    <th>Harga (IDR)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><b>Jersey Futsal/Bola</b></td>
-                    <td>Setelan Full Printing</td>
-                    <td>12 Pcs</td>
-                    <td>125k - 150k</td>
-                </tr>
-                <tr>
-                    <td><b>Jersey Esport</b></td>
-                    <td>Kerah Polo / Zipper</td>
-                    <td>12 Pcs</td>
-                    <td>135k - 160k</td>
-                </tr>
-                <tr>
-                    <td><b>Singlet Lari</b></td>
-                    <td>Bahan Mesh / Pinhole</td>
-                    <td>24 Pcs</td>
-                    <td>95k - 120k</td>
-                </tr>
-                <tr>
-                    <td><b>Jaket Printing</b></td>
-                    <td>Micro / Parasut</td>
-                    <td>12 Pcs</td>
-                    <td>185k - 250k</td>
-                </tr>
-            </tbody>
-        </table>
+    <div id="home" class="hero">
+        <h1>BEGINNER.ID</h1>
+        <p>Premium Jersey & Visual Design Solution</p>
     </div>
 
-    <h2 class="section-title" id="contact">Lokasi Workshop</h2>
-    <div class="map-section">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126916.03794301662!2d106.8271528!3d-6.2087634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e04d4f4d23%3A0x669b05322989608!2sJakarta%20Pusat%2C%20Kota%20Jakarta%20Pusat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-
-    <footer id="footer">
-        <h3 style="color: #c5a059; letter-spacing: 4px; margin-bottom: 20px;">HUBUNGI KAMI</h3>
-        
-        <div class="social-links">
-            <a href="https://instagram.com/bgnr.id" target="_blank">INSTAGRAM</a>
-            <a href="https://wa.me/6283153441074" target="_blank">WHATSAPP</a>
+    <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Kualitas Juara</h3>
+                <p>Kami adalah mitra konveksi jersey yang berbasis di Bandung, spesialis dalam pembuatan jersey printing berkualitas tinggi untuk berbagai cabang olahraga.</p>
+                <p>Menggunakan teknologi sublimasi terbaru dan bahan kain dry-fit premium untuk memastikan tim Anda tampil maksimal di lapangan.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?auto=format&fit=crop&q=80" alt="About BGNR">
+            </div>
         </div>
+    </section>
 
-        <p style="margin-bottom: 30px; opacity: 0.8; max-width: 500px; margin-left: auto; margin-right: auto;">
-            Jl. Contoh Alamat No. 123, Kota Anda, Indonesia.<br>
-            Buka: Senin - Sabtu (09.00 - 17.00 WIB)
+    <section id="catalog">
+        <h2 class="section-title">Jersey Catalog</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <span class="product-label">Futsal</span>
+                <img src="https://via.placeholder.com/400x600?text=Jersey+Futsal" alt="Futsal">
+            </div>
+            <div class="gallery-item">
+                <span class="product-label">Esport</span>
+                <img src="https://via.placeholder.com/400x600?text=Jersey+Esport" alt="Esport">
+            </div>
+            <div class="gallery-item">
+                <span class="product-label">Running</span>
+                <img src="https://via.placeholder.com/400x600?text=Jersey+Running" alt="Running">
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2 class="section-title">Pricing</h2>
+        <div class="pricing-table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Minimal</th>
+                        <th>Harga Estimasi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jersey Futsal Full Print</td>
+                        <td>12 Pcs</td>
+                        <td>IDR 125.000 - 150.000</td>
+                    </tr>
+                    <tr>
+                        <td>Jersey Esport (Kerah)</td>
+                        <td>12 Pcs</td>
+                        <td>IDR 135.000 - 160.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="location">
+        <h2 class="section-title">Our Location</h2>
+        <p style="text-align: center; margin-bottom: 20px;">
+            Jatiendah, Kec. Cilengkrang, Kabupaten Bandung, Jawa Barat 40616
         </p>
-        
-        <a href="https://wa.me/6283153441074" class="cta-red" target="_blank">Konsultasi Desain Gratis</a>
-        
-        <div class="footer-bottom">
-            &copy; 2026 BGNR.ID - Premium Quality Wear. All Rights Reserved.
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.973463695286!2d107.6980!3d-6.8938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTMnMzcuNyJTIDEwN8KwNDEnNTIuOCJF!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
+    </section>
+
+    <footer>
+        <h3>START YOUR PROJECT WITH US</h3>
+        <a href="https://instagram.com/bgnr.id" class="social-link">INSTAGRAM @BGNR.ID</a>
+        <p>&copy; 2026 BGNR.ID - Bandung Jersey Manufacturer</p>
     </footer>
 
     <a href="https://wa.me/6283153441074" class="wa-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="30" alt="WA">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
     </a>
 
 </body>
